@@ -1,0 +1,210 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    /* Keeping the styling focused on the form elements */
+    body {
+        color: #000; /* Black text color for default */
+        font-family: Arial, sans-serif; /* Font style */
+    }
+
+    .form {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9); /* Light background for the form */
+        border-radius: 10px; 
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form:hover {
+        transform: scale(1.02);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn {
+        position: relative;
+        overflow: hidden;
+        color: #000; /* Black text for button */
+    }
+
+    .btn:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: rgba(23, 162, 184, 0.6);
+        border-radius: 50%;
+        transition: width 0.5s ease, height 0.5s ease, top 0.5s ease, left 0.5s ease;
+        z-index: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    .btn:hover:before {
+        width: 400%;
+        height: 400%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .btn:hover {
+        color: #000; /* Black text on hover */
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(23, 162, 184, 0.7);
+        border-color: #17a2b8;
+    }
+
+    .form-check {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .form-check-input {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .terms-link {
+        color: #17a2b8; /* Light blue color for the terms link */
+        text-decoration: underline; /* Underline the link */
+        cursor: pointer; /* Change cursor to pointer */
+    }
+
+    .terms-link:hover {
+        color: #0056b3; /* Darker color on hover */
+    }
+</style>
+
+<form method="POST" action="" class="form">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Create Account</legend>
+        <div class="form-group">
+            {{ form.firstname.label(class="form-control-label") }}
+            {% if form.firstname.errors %}
+                {{ form.firstname(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.firstname.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.firstname(class="form-control form-control-lg") }}
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.lastname.label(class="form-control-label") }}
+            {% if form.lastname.errors %}
+                {{ form.lastname(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.lastname.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.lastname(class="form-control form-control-lg") }}
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.email.label(class="form-control-label") }}
+            {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.email(class="form-control form-control-lg") }}
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.password.label(class="form-control-label") }}
+            {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid", id="password") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.password(class="form-control form-control-lg", id="password") }}
+            {% endif %}
+            <div id="passwordStrength" class="mt-2"></div>
+        </div>
+        <div class="form-group">
+            {{ form.confirm_password.label(class="form-control-label") }}
+            {% if form.confirm_password.errors %}
+                {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.confirm_password(class="form-control form-control-lg") }}
+            {% endif %}
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="terms" required>
+            <label class="form-check-label" for="terms">
+                I agree to the <a href="#" class="terms-link" data-toggle="tooltip" title="Click to view terms and conditions">terms and conditions</a>.
+            </label>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
+        </small>
+    </div>
+</form>
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const passwordStrengthDiv = document.getElementById('passwordStrength');
+
+    passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+        let strength = 0;
+
+        if (password.length > 6) strength++;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[a-z]/.test(password)) strength++;
+        if (/\d/.test(password)) strength++;
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+        let strengthText = '';
+        switch (strength) {
+            case 0:
+            case 1:
+                strengthText = 'Very Weak';
+                passwordStrengthDiv.style.color = 'red';
+                break;
+            case 2:
+                strengthText = 'Weak';
+                passwordStrengthDiv.style.color = 'orange';
+                break;
+            case 3:
+                strengthText = 'Medium';
+                passwordStrengthDiv.style.color = 'yellow';
+                break;
+            case 4:
+                strengthText = 'Strong';
+                passwordStrengthDiv.style.color = 'green';
+                break;
+        }
+        passwordStrengthDiv.innerText = `Password Strength: ${strengthText}`;
+    });
+</script>
+{% endblock content %}

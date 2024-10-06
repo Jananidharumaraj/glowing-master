@@ -1,0 +1,155 @@
+body {
+  background: #fafafa;
+  margin-top: 5rem;
+  color: #00264d; 
+  text-align: center;
+  font-family: 'Manjari', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  width: 100%;
+  margin-bottom: 1rem; /* Add some space below headers */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+h2:hover {
+  color: #43b9f0; /* Change color on hover */
+}
+
+#navbarToggle {
+  margin-top: 20px;
+}
+
+#noOfItems {
+  margin-left: -20px;
+}
+
+.card {
+  width: 25rem; 
+  height: 40rem;
+  margin-bottom: 20px;
+  transition: transform 0.3s; /* Add transition for hover effect */
+  border: 1px solid #ddd; /* Subtle border around cards */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+}
+
+.carousel-inner {
+  height: 500px;
+}
+
+.form {
+  margin: auto; 
+  width: 60%; 
+  padding: 50px;
+  border-radius: 10px; /* Rounded corners for forms */
+  background-color: #ffffff; /* White background for forms */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+main {
+  color: #00264d; 
+  text-align: center;
+  font-family: 'Manjari', sans-serif;
+}
+
+header {
+  height: 90px;  
+  border-bottom: 1px solid lightgrey; 
+}
+
+#logo {
+  height: 50px;
+}
+
+#navbarToggle {
+  font-family: 'Manjari', sans-serif;
+  font-size: 18px;
+}
+
+.glyphicon {
+  color: #00264d; 
+  height: 10px;
+  font-size: 20px;
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.glyphicon:hover {
+  color: #43b9f0; 
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #00264d;
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #43b9f0;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  background-color: #f2f2f2;
+  font-family: 'Manjari', sans-serif;
+  margin-top: 40px;
+  color: #00264d;
+  padding: 20px 0; /* Add some padding */
+}
+
+.nav-link {
+  display: inline;
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+/* Button Styles */
+.btn {
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions for buttons */
+}
+
+.btn-primary {
+  background-color: #43b9f0; /* Change to your preferred color */
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #007bff; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card {
+    width: 100%; /* Make cards full-width on small screens */
+  }
+
+  .form {
+    width: 90%; /* Make forms wider on small screens */
+  }
+}

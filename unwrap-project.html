@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- Parallax Banner Section -->
+<div class="parallax"></div>
+
+<div class="container my-5">
+    <h1 class="text-center display-4 font-weight-bold">Unleash Your Beauty!</h1>
+    <img src="https://cdn.pixabay.com/photo/2021/01/06/07/52/lipsticks-5893480_1280.jpg" class="img-fluid rounded" alt="Cosmetics Display">
+
+    <h2 class="text-center mt-4">Transform Your Beauty Routine!</h2>
+    <h3 class="text-center">Discover the magic of natural ingredients.</h3>
+
+    <p class="text-center lead">Our health and our planet deserve better. Plastic pollution and harmful chemicals should not be part of our beauty regimen.</p>
+    
+    <div class="my-4">  
+        <img width="100%" src="https://cdn.pixabay.com/photo/2014/03/21/06/05/colors-291851_1280.jpg" alt="Natural Products" class="img-fluid rounded" />
+    </div>
+    
+    <div class="text-center">  
+        <h2 class="font-weight-bold">Join the Movement Towards Sustainable Beauty!</h2>
+    </div>
+    
+    <p class="mt-3">Our goal is to provide alternatives to conventional cosmetics by partnering with brands that prioritize sustainability and quality.</p>
+    <p>We want to keep it <b>easy, clean, and accessible.</b> Our first step is to offer customizable boxes filled with locally made, eco-friendly products.</p>
+
+    <h2 class="mt-5">Our Partners</h2>
+    <h5>We’ve collaborated with suppliers that share our vision for a more sustainable future.</h5>
+    <h4><b>Our partners are curated through four main criteria:</b></h4>
+
+    <ul class="list-unstyled">
+        <li>🌱 Sustainable materials/ingredients</li>
+        <li>✨ Great quality</li>
+        <li>🚫 Packaged-free (supplied in bulk) or at least plastic-free</li>
+        <li>🌍 Local first</li>
+    </ul>
+</div>
+
+<!-- Customer Testimonials Section -->
+<div class="container my-5">
+    <h2 class="text-center font-weight-bold">What Our Customers Say</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <blockquote class="blockquote">
+                <p class="mb-0">"I love the quality of the products and the eco-friendly packaging!"</p>
+                <footer class="blockquote-footer">Jane Doe</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4">
+            <blockquote class="blockquote">
+                <p class="mb-0">"Great selection and fantastic customer service!"</p>
+                <footer class="blockquote-footer">John Smith</footer>
+            </blockquote>
+        </div>
+        <div class="col-md-4">
+            <blockquote class="blockquote">
+                <p class="mb-0">"I've never been happier with my beauty products!"</p>
+                <footer class="blockquote-footer">Emily Johnson</footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Products Section with Animated Buttons -->
+<div class="container my-5">
+    <h2 class="text-center font-weight-bold">Featured Products</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2016/01/20/04/36/cosmetics-1150881_1280.jpg" class="card-img-top" alt="Foundation">
+                <div class="card-body">
+                    <h5 class="card-title">Foundation</h5>
+                    <p class="card-text">A lightweight foundation for a flawless complexion.</p>
+                    <p class="price font-weight-bold">$30.00</p>
+                    <a href="{{ url_for('addToCart', product_id=1) }}" class="btn btn-primary btn-animate">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2017/09/11/21/08/beauty-2740459_1280.jpg" class="card-img-top" alt="Lipstick">
+                <div class="card-body">
+                    <h5 class="card-title">Vibrant Lipstick</h5>
+                    <p class="card-text">A rich and vibrant lipstick that lasts all day.</p>
+                    <p class="price font-weight-bold">$25.00</p>
+                    <a href="{{ url_for('addToCart', product_id=2) }}" class="btn btn-primary btn-animate">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2017/11/12/08/54/background-2941794_1280.jpg" class="card-img-top" alt="Eyeshadow Palette">
+                <div class="card-body">
+                    <h5 class="card-title">Eyeshadow Palette</h5>
+                    <p class="card-text">A versatile eyeshadow palette with a range of rich pigments.</p>
+                    <p class="price font-weight-bold">$35.00</p>
+                    <a href="{{ url_for('addToCart', product_id=3) }}" class="btn btn-primary btn-animate">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Newsletter Subscription Section -->
+<div class="jumbotron text-center my-5">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Stay updated on the latest beauty tips and exclusive offers!</p>
+    <form class="form-inline justify-content-center">
+        <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
+    </form>
+</div>
+
+<!-- Social Media Links with Unicode Symbols -->
+<div class="container text-center my-5">
+    <h2>Follow Us</h2>
+    <a href="https://www.facebook.com" class="btn btn-outline-primary">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+    <a href="https://www.instagram.com" class="btn btn-outline-danger">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.twitter.com" class="btn btn-outline-info">
+      <i class="fab fa-twitter"></i> Twitter
+    </a>
+  </div>
+
+<!-- FAQ Section -->
+<div class="container my-5">
+    <h2 class="text-center font-weight-bold">Frequently Asked Questions</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>What is your return policy?</h5>
+            <p>We offer a 30-day return policy on all unopened items.</p>
+        </div>
+        <div class="col-md-6">
+            <h5>Do you ship internationally?</h5>
+            <p>Yes, we ship to select countries worldwide.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Blog/Articles Section -->
+<div class="container my-5">
+    <h2 class="text-center font-weight-bold">Latest Beauty Tips</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h5><a href="#">5 Essential Skincare Tips</a></h5>
+            <p>Discover the secrets to healthy, glowing skin.</p>
+        </div>
+        <div class="col-md-4">
+            <h5><a href="#">Makeup Trends to Follow</a></h5>
+            <p>Stay ahead of the trends with our guide to the latest looks.</p>
+        </div>
+        <div class="col-md-4">
+            <h5><a href="#">Eco-Friendly Beauty Products</a></h5>
+            <p>Learn about sustainable beauty solutions.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start mt-5">
+    <div class="text-center p-3">
+        <h5>Contact Us</h5>
+        <p>Email: support@glowingstore.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Privacy Policy | Terms of Service</p>
+    </div>
+</footer>
+
+{% endblock content %}

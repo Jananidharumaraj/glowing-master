@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <!-- Product Name -->
+        <h2 class="article-title">{{ product.name }}</h2>
+        
+        <!-- Product Image (Dynamically loading based on product ID) -->
+        <img src="{{ url_for('static', filename='images/product' + str(product.id) + '.jpg') }}" 
+             alt="{{ product.name }}" 
+             style="width:300px; height:auto;" class="img-fluid"/>
+
+        <!-- Product Description -->
+        <p class="article-content">{{ product.description }}</p>
+
+        <!-- Add to Cart Link -->
+        <div id="addToCart">
+          <a href="/addToCart/{{product.id}}">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </article>
+{% endblock content %}
