@@ -3,8 +3,6 @@
 After completing my first computer science class through CS50 (EDX), I decided to build an e-commerce website
 using Python, Flask, SQLalchemy (and also HTML, CSS, Jinja).
 
-The original website is hosted [here](https://unwrapla.com/) and was built on Shopify. This is a zero waste business offering
-refilling services for cleaning and beauty products.
 
 I reproduced this web app and tried to imitate their design and main features. 
 
